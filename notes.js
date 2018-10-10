@@ -67,9 +67,9 @@ console.log(1 + undefined);
 changeMe = 'Back to a string'
 
 //can also check  like this 
-if (typeof changeMe === typeof 'null'){
+if (typeof changeMe === typeof 'null') {
     console.log('its a string')
-}else(console.log('not a string'))
+} else (console.log('not a string'))
 
 
 
@@ -77,9 +77,61 @@ if (typeof changeMe === typeof 'null'){
 
 //*********Basic operations
 
-//*********Integer/ Float division
+var price = 10.99;
+var taxRate = 0.08;
+var total = price + (price * taxRate);
 
-//*********Modulus
+console.log(total);
+console.log(Math.round(total));
+//nearest integer
+
+console.log(Math.ceil(total));
+//rounds up
+
+console.log(Math.floor(total));
+//rounds down
+
+console.log((10 / 2) * 10);
+//is 50
+console.log(10 / 3);
+//is 3.33333
+console.log(10 % 3);
+//is remainder of 1 or modulous of 1
+
+//*********Integer/ Float division ** floats have decimals ;)
+
+//*********Modulus %
+
+
+var x = 10 / 3
+console.log(x);
+
+if ((x === x) && (x % 1 === 0)) {
+    console.log("is an integer")
+} else {
+    console.log('is not an integer but is a float');
+}
+
+//or like this
+
+if ((x === x) && (x % 1 !== 0)) {
+    console.log('this is not an integer')
+
+} else {
+    console.log('this is a float')
+}
+
+function isInteger(x) {
+    return Number(x) === x && x % 1 === 0;
+   //returns true/ false if true its an integer if false it is now 
+}
+
+console.log(isInteger(x)); 
+
+if (isInteger(x)===false){
+    console.log('this number is not an integer')
+}
+
 
 
 
