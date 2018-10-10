@@ -74,6 +74,7 @@ if (typeof changeMe === typeof 'null') {
 
 
 // ****************************Math Operations
+//https://www.w3schools.com/js/js_math.asp
 
 //*********Basic operations
 
@@ -123,12 +124,12 @@ if ((x === x) && (x % 1 !== 0)) {
 
 function isInteger(x) {
     return Number(x) === x && x % 1 === 0;
-   //returns true/ false if true its an integer if false it is now 
+    //returns true/ false if true its an integer if false it is now 
 }
 
-console.log(isInteger(x)); 
+console.log(isInteger(x));
 
-if (isInteger(x)===false){
+if (isInteger(x) === false) {
     console.log('this number is not an integer')
 }
 
@@ -136,12 +137,63 @@ if (isInteger(x)===false){
 
 
 // ****************************String Operations
+//https://www.w3schools.com/jsref/jsref_obj_string.asp
 
 //*********charAt
-//*********splice
+//The charAt() method returns the character at the specified index in a string.
+
+var words = "I AM WORDS";
+console.log(words.charAt(3));
+//will be M spaces also count and take the space of an index example 4 would be empty because its space between M and W.  You can pull one letter out at a time
+var M = words.charAt(3);
+console.log(M);
+
+//return last character in string
+console.log(words.charAt(words.length - 1));//will be S
+
+for (i = 0; i < words.length; i++) {
+    console.log(words.charAt(i));
+    //prints each letter & space in words 
+}
+
+//*********slice
+//The slice() method extracts parts of a string and returns the extracted parts in a new string.
+console.log(words.slice(5, 9))//removes WORD
+
+
 //*********split
+
+console.log(words.split(' '));
+//["I", "AM", "WORDS"]
+
+//using limit parameter
+console.log(words.split(' ', 1));
+//["I"]
+
+//separate at a specific letter
+console.log(words.split('W'));
+// ["I AM ", "ORDS"]
+
+
 //*********substring
+//The substring() method extracts the characters from a string, between two specified indices, and returns the new sub string.
+
+//This method extracts the characters in a string between "start" and "end", not including "end" itself.
+console.log(words.substring(0, 4))
+
+
 //*********toUpperCase
+console.log(words.toLowerCase());
+//i am words
+
+console.log(words.substring(0,4).toLowerCase());
+//i am
+
+// toLowerCase()	Converts a string to lowercase letters
+// toString()	Returns the value of a String object
+// toUpperCase()	Converts a string to uppercase letters
+// trim()	Removes whitespace from both ends of a string
+// valueOf()	Returns the primitive value of a String object
 
 
 // ****************************Control flow & loops
