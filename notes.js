@@ -186,7 +186,7 @@ console.log(words.substring(0, 4))
 console.log(words.toLowerCase());
 //i am words
 
-console.log(words.substring(0,4).toLowerCase());
+console.log(words.substring(0, 4).toLowerCase());
 //i am
 
 // toLowerCase()	Converts a string to lowercase letters
@@ -196,11 +196,143 @@ console.log(words.substring(0,4).toLowerCase());
 // valueOf()	Returns the primitive value of a String object
 
 
-// ****************************Control flow & loops
+// ****************************Control flow & loops & operators
+//https://www.w3schools.com/jsref/jsref_statements.asp
 //*********If else
+// if (condition1) {
+//     block of code to be executed if condition1 is true
+// } else if (condition2) {
+//     block of code to be executed if the condition1 is false and condition2 is true
+// } else {
+//     block of code to be executed if the condition1 is false and condition2 is false
+// }
+
+
 //********* && || !! == === != !== < > <= >=
+
+var a = 'a';
+var b = 'b';
+var c
+
+if ((typeof a === typeof 'string') || (typeof b === typeof 'string') || (typeof c === typeof 'string')) {
+    console.log('there is atleast one string');
+    //there is atleast one string.  ||= OR
+}
+
+if ((typeof a === typeof 'string') && (typeof b === typeof 'string') && (typeof c === typeof 'string')) {
+    console.log('there is atleast one string');
+    //these are all strings && = and
+} else {
+    console.log('one or more of these is not a string');
+}
+
+
+// ==	equal to	x == 8	false	
+// x == 5	true	
+// ===	equal value and equal type	x === "5"	false	
+// x === 5	true
+// !=	not equal	x != 8	true	
+// !==	not equal value or not equal type	x !== "5"	true	
+// x !== 5	false	
+// >	greater than	x > 8	false	
+// <	less than	x < 8	true	
+// >=	greater than or equal to	x >= 8	false	
+// <=	less than or equal to	x <= 8	true
+// &&	and	(x < 10 && y > 1) is true	
+// ||	or	(x === 5 || y === 5) is false	
+// !	not	!(x === y) is true
+
+
+
 //*********Switch statement
+//	(expression) is required. Specifies an expression to be evaluated. The expression is evaluated once. The value of the expression is compared with the values of each case labels in the structure. If there is a match, the associated block of code is executed
+
+// switch(expression) {
+//     case n:
+//         code block
+//         break;
+//     case n:
+//         code block
+//         break;
+//     default:
+//         default code block
+// }
+
+var input = 4
+switch (input) {
+    case 1: console.log('input is equal to 1')
+        break;
+    case 2: console.log('input is equal to 2')
+        break;
+    case 3: console.log('input is equal to 3')
+        break;
+    case 4: console.log('input is equal to 4')
+        break;
+    default: console.log('input isnt equal')
+
+}
+
+
+
 //*********For loops (while etc)
+//http://2ality.com/2011/04/iterating-over-arrays-and-objects-in.html
+//for ([start]; [condition]; [final-expression])statement
+var genre = ['rock', 'classic', 'pop', 'polka'];
+for (var i = 0; i < genre.length; i++) {
+    console.log(genre[i]);
+    //loops through the entire array
+}
+console.log(genre.indexOf('polka'))
+//returns index of where polka is (3)
+
+for (var i = 0; i < 2; i++) {
+    console.log(genre[i]);
+    //loops through only 2 indexes of the array, 0 and 1
+}
+var numbersArr = [2.5, 4.6, 10.1, 20];
+var numbersArr2 = [1, 18, 3, 5, 7, 9, 11, 15];
+
+function findEvenNumber(arr) {
+
+    for (var i = 0; i < arr.length; i++) {
+        if ((arr[i] % 2) === 0) {
+            console.log("Found: " + arr[i]);
+            break;
+        }
+
+        console.log("No even number found.");
+    }
+    console.log("DONE");
+}
+findEvenNumber(numbersArr);
+findEvenNumber(numbersArr2);;
+
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+var fruits = ['strawberry', 'apple', 'banana'];
+console.log(fruits);
+fruits.push('blueberry')
+//adds
+console.log(fruits);
+
+for (var indexVal in fruits) {
+    console.log('Index is ' + indexVal + ' value is ' + fruits[indexVal]);
+    //indexVal =  0, 1, 2, 3
+}
+
+
+var strawberry = {
+    seeds: true,
+    color: 'red',
+    type: 'fruit',
+    //property: value
+}
+
+for (var key in strawberry) {
+    console.log('Property is ' + key + ' value is ' + (strawberry[key]));
+    //keys =  seeds, color, type
+}
+
 
 
 // ****************************Functions
@@ -216,6 +348,7 @@ console.log(words.substring(0,4).toLowerCase());
 //*********
 
 // ****************************Arrays
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 //*********How to push values into an array
 //*********How to access elements in an array
 //*********
