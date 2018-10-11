@@ -439,8 +439,6 @@ vowelChecker('Words')
 vowelChecker('Okay');
 
 
-
-
 // ****************************Objects
 //*********Create simple object with constructor and methods
 var threeObjects = [
@@ -456,46 +454,41 @@ var threeObjects = [
     },
     {
       name: "Sams Man",
-      brand: "Sam",
+      brand: "Honda",
       carsDestroyed: 2
     }
   ];
   
-  
-  // Console log 3 properties for every one of the five objects
-  for (var i = 0; i < threeObjects; i++) {
-    console.log(threeObjects[i].name);
-    console.log(threeObjects[i].brand);
-    console.log(threeObjects[i].carsDestroyed);
-  }
 
+threeObjects.forEach(function(name, brand, carsDestroyed){
+    console.log(name, brand, carsDestroyed);
+});
+
+console.log(threeObjects[0].name);
+
+
+//filter()
+//map()
+//sort()
+//reduce()
+
+
+
+
+  //couple of different ways to create objects below, creating a model/ blue print is the easiest/ fastest
 
 let personSix = new Object();
-
 personSix.name = "Dan";
 personSix.eyeColor = "Green";
 personSix.age = 27;
-
-
 personSix.updateAge = function () {
     return ++personSix.age;
 }
+
 console.log(personSix.age);
 personSix.updateAge();
 console.log(personSix.age);
 
-
-let personObj = {
-    name: "Dan",
-    eyeColor: "Green",
-    age: 27,
-    updateAge: function () {
-        return ++personObj.age;
-    }
-
-
-}
-console.log(personObj);
 
 //constructors:
 //set up the Person object blue print
@@ -518,12 +511,7 @@ console.log(person01.updateAge());
 
 //may also be written like this
 
-let PersonThree = function (name, eyeColor, age) {
-    this.name = name;
-    this.eyeColor = eyeColor;
-    this.age = age;
-    //this is the constructor^^^
-}
+
 
 // //*********Using object prototype to add properties and methods to a class
 
@@ -540,12 +528,34 @@ Programmer.prototype.printInfo = function () {
         "\nAge: " + this.age + "\nLanguages: " + this.language);
 };
 
+Programmer.prototype.nameAge = function () {
+    return this.name + this.age;
+   
+};
+
+
+
+//you can add methods to a prototype but you cannot add properties, you can only add onto the function.  Example after this.language =  language you can add a property of height 
+
+
+
 // new programmer object is initialized to bob and is provided with the variables
 // necessary to create all of the properties
 var bob = new Programmer("Bob Smith", "Supreme CodeMaster", 33, "JavaScript");
 
 // calls the printInfo method for bob to print all of his information to the console
 bob.printInfo();
+
+bob.nationality = 'Russian'
+//adding a property to bob
+
+console.log(bob)
+console.log(bob.nameAge());//calling the nameAge method on bob our created object
+
+delete bob.age;
+//deletes the age property
+
+console.log(bob);
 
 //*********
 
