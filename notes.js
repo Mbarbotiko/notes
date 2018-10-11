@@ -443,26 +443,244 @@ vowelChecker('Okay');
 
 // ****************************Objects
 //*********Create simple object with constructor and methods
+var threeObjects = [
+    {
+      name: "Digital Destructor",
+      brand: "Honda",
+      carsDestroyed: 2001
+    },
+    {
+      name: "Turbulent Combuster",
+      brand: "Toyota",
+      carsDestroyed: 500
+    },
+    {
+      name: "Sams Man",
+      brand: "Sam",
+      carsDestroyed: 2
+    }
+  ];
+  
+  
+  // Console log 3 properties for every one of the five objects
+  for (var i = 0; i < threeObjects; i++) {
+    console.log(threeObjects[i].name);
+    console.log(threeObjects[i].brand);
+    console.log(threeObjects[i].carsDestroyed);
+  }
+
+
+let personSix = new Object();
+
+personSix.name = "Dan";
+personSix.eyeColor = "Green";
+personSix.age = 27;
+
+
+personSix.updateAge = function () {
+    return ++personSix.age;
+}
+console.log(personSix.age);
+personSix.updateAge();
+console.log(personSix.age);
+
+
+let personObj = {
+    name: "Dan",
+    eyeColor: "Green",
+    age: 27,
+    updateAge: function () {
+        return ++personObj.age;
+    }
+
+
+}
+console.log(personObj);
+
+//constructors:
+//set up the Person object blue print
+
+function PersonTwo(name, eyeColor, age) {
+    this.name = name;
+    this.eyeColor = eyeColor;
+    this.age = age;
+    this.updateAge = function () {
+        return ++this.age;
+    };
+}
+
+let person01 = new PersonTwo("Mike", "Green", 27)
+let person02 = new PersonTwo("John", "Blue", 28)
+let person03 = new PersonTwo("Janet", "Brown", 29)
+
+console.log(person01.name);
+console.log(person01.updateAge());
+
+//may also be written like this
+
+let PersonThree = function (name, eyeColor, age) {
+    this.name = name;
+    this.eyeColor = eyeColor;
+    this.age = age;
+    //this is the constructor^^^
+}
+
+// //*********Using object prototype to add properties and methods to a class
+
+function Programmer(name, position, age, language) {
+    this.name = name;
+    this.position = position;
+    this.age = age;
+    this.language = language;
+}
+
+// creates the printInfo method and applies it to all programmer objects
+Programmer.prototype.printInfo = function () {
+    console.log("Name: " + this.name + "\nPosition: " + this.position +
+        "\nAge: " + this.age + "\nLanguages: " + this.language);
+};
+
+// new programmer object is initialized to bob and is provided with the variables
+// necessary to create all of the properties
+var bob = new Programmer("Bob Smith", "Supreme CodeMaster", 33, "JavaScript");
+
+// calls the printInfo method for bob to print all of his information to the console
+bob.printInfo();
+
+//*********
+
+var Pokemon = function () {
+    this.hungry = false;
+    this.happy = false;
+    this.strength = 1;
+    this.level = 1;
+    this.feed = function () {
+      if (this.hungry) {
+        console.log('Thanks for feeding me,  I am happy and not Hungry!');
+        this.hungry = false;
+        this.happy = true;
+      }
+
+    }
+    this.train = function () {
+      this.strength++;
+      this.hungry = true;
+      this.happy = false;
+      console.log('I am feeling this strong:  ' + this.strength + ' but I am a little hungry now');
+
+    }
+    //putting the function in the object makes it accessible by other objects created in the future
+
+  }
+
+  var pokemon = new Pokemon();
+  //creating pokemon object
+  pokemon.pikachu = new Pokemon();
+  pokemon.charmander = new Pokemon();
+  pokemon.bulbasaur = new Pokemon();
+  pokemon.squirtle = new Pokemon();
+  // adding different types of pokemon to pokemon object
+  console.log(pokemon);
+  console.log(pokemon.pikachu);
+  console.log(pokemon.pikachu.strength);
+  // accessing different properties for object
+
+  pokemon.pikachu.shock = function () {
+    this.strength--;
+    this.hungry = true;
+    this.happy = false;
+    console.log('I am feeling this strong:  ' + this.strength + 'I feel weaker than before');
+    //setting a function that can be called on specific pokemon object (can set as many unique functions as needed)
+
+  }
+  pokemon.pikachu.shock();
+  pokemon.pikachu.shock();
+  pokemon.pikachu.shock();
+  pokemon.pikachu.shock();
+  console.log(pokemon.pikachu)
+  pokemon.pikachu.train();
+  pokemon.pikachu.train();
+  pokemon.pikachu.train();
+  pokemon.pikachu.train();
+  pokemon.pikachu.train();
+  console.log(pokemon.pikachu)
+  // pokemon.charmander.shock();
+  //this one be recognised as an attack for other pokemon because it hasnt been assigned the function
+
+  Pokemon.prototype.printInfo = function () {
+  console.log("Hungry: " + this.hungry + "\nHappy: " + this.happy +
+      "\nStrength: " + this.strength + "\nLevel: " + this.level);
+};
+
+
+
 
 //*********Using this keyword
-//*********Using object prototype to add properties an methods to a class
-//*********
+
+let dog = {
+    sound: 'bark',
+    talk :function(){
+      console.log(this.sound);
+      // you can use this to refert to the object properties within the object
+    }
+  }
+  
+  dog.talk();
+
+  let talkFunction = dog.talk// will be undefined
+  let bindFunction = talkFunction.bind(dog)//if you bind
+  bindFunction();//you access dog again and call its talk function
+  
+  
+  // if outside need to call it by dog. whatever property
+  
+
+
+
 
 // ****************************Arrays
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 //*********How to push values into an array
+
+
 //*********How to access elements in an array
-//*********
-//*********
+var coolPeople = ["bruce lee", "arnold schwarzenegger", "will smith", "esther", "marie curie", "joan of arc"];
+
+// Then use console.log to print each of the names listed inside.
+// ...
+console.log(coolPeople[0,1,2,3,4,5]);
+console.log(coolPeople);
+
+
 
 // ****************************Recursion how to recursion in a function
-//*********
-//*********
-//*********
-//*********
+//*********function calls itsself until it doesnt / stops
+// https://medium.freecodecamp.org/recursion-in-javascript-1608032c7a1f
 
-// ****************************
-//*********
-//*********
-//*********
-//*********
+function countDown(num){
+    if (num ===0) return;//stop the function or it'll go forever
+    console.log(num)
+    countDown(num-1)
+}
+
+countDown(10);
+
+function addHundred(num){
+    if (num >10000) return;
+    console.log(num);
+    addHundred(num * 10);
+}
+
+addHundred(1);
+
+function reverse( str ) {
+    console.log(str);
+    if ( str.length <= 1 ) {
+      return str;
+    }
+    return reverse( str.substr( 1 ) ) + str[ 0 ];
+    
+  }
+
+  console.log(reverse('MARGARITA'));
+
