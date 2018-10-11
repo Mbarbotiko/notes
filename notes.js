@@ -8,6 +8,7 @@
 //undefined
 //A variable that has not been assigned a value has the value undefined
 
+
 var changeMe
 console.log(changeMe);
 console.log(typeof changeMe);
@@ -289,6 +290,8 @@ for (var i = 0; i < 2; i++) {
     console.log(genre[i]);
     //loops through only 2 indexes of the array, 0 and 1
 }
+
+//loop that stops once a match is found, in this example even number passing in array as argument, arr as parameter
 var numbersArr = [2.5, 4.6, 10.1, 20];
 var numbersArr2 = [1, 18, 3, 5, 7, 9, 11, 15];
 
@@ -334,15 +337,113 @@ for (var key in strawberry) {
 }
 
 
+function multiply(a, b) {
+    return a * b
+}
+
+console.log(multiply(1, 6));
+
+
 
 // ****************************Functions
+
 //*********Create and return data from functions with multiple parameters
 //*********
+function descendingOrder(n) {
+    return parseInt(String(n).split('').sort().reverse().join(''));
+    //use parse int if number is entered as a string will return it as an integer.
+    //use split to turn number into an array of substrings
+    //use sort to put them into order ascending
+    //use reverse to put them into reverse order
+    //use join to put them back into one whole number
+
+}
+console.log(descendingOrder(75836352));
+
+
 //*********
+
+function runARandom(n) {
+    return Math.floor(Math.random() * n);
+    //returns a random integer between 0 and whatever the argument passed is.
+    //if 2 is argument will return between 0 & 1, if 10 , 0-9
+}
+console.log(runARandom(2));
+
+var counter = 0;
+
+function hollerAtMe(name, age, movie) {
+
+    return name + ' ' + age + ' ' + movie + ' ' + ' ' + counter++;
+    //takes in name age movie parameters, and returns them along with a counter that is tracking how many entries have been made
+}
+
+console.log(hollerAtMe('Margarita', 32, 'Killer Klowns'));
+console.log(hollerAtMe('Margarita', 32, 'Killer Klowns'));
+console.log(hollerAtMe('Margarita', 32, 'Killer Klowns'));
+console.log(hollerAtMe('Margarita', 32, 'Killer Klowns'));
+console.log(hollerAtMe('Margarita', 32, 'Killer Klowns'));
+
+
 //*********
+function multiplierReturn(x, y, z) {
+    return x * y * z;
+}
+//simple function takes in 3 parameters and multiplies them together returns the result
+
+console.log(multiplierReturn(6, 3, 1));
+
+//*********
+// Creates a Function called "isString" that takes three arguments (x, y, z).
+function isString(x, y, z) {
+
+    // isString checks if each argument is a string using typeof.
+
+    // If each argument is a string it will note that.
+    if (typeof x === "string" && typeof y === "string" && typeof z === "string") {
+        console.log("Yep. They are all strings");
+    }
+
+    // If anyone of them is NOT a string... it will note that.
+    else {
+        console.log("No... I don't believe these are all strings.");
+    }
+}
+
+isString('yes', 5, 'yes i am');
+
+//*********
+// Creates a Function called "vowelChecker" that takes in a single argument (x).
+function vowelChecker(x) {
+
+    // vowelChecker will grab the first letter (character)...
+    var firstChar = x.toLowerCase().charAt(0);
+
+    // Then check if that first letter is a vowel.
+    if (firstChar === "a" || firstChar === "e" || firstChar === "i" || firstChar === "o" || firstChar === "u") {
+
+        // If so... it will log that.
+        console.log("OMG. The first letter is a vowel!");
+
+    }
+
+    else {
+
+        // If not... it will log that.
+        console.log("First letter is NOT a vowel. *sadface*");
+
+    }
+}
+
+vowelChecker('Words')
+vowelChecker('Okay');
+
+
+
 
 // ****************************Objects
 //*********Create simple object with constructor and methods
+
 //*********Using this keyword
 //*********Using object prototype to add properties an methods to a class
 //*********
