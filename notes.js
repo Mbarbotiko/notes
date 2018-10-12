@@ -665,6 +665,24 @@ console.log(months);
 // expected output: Array ['Jan', 'Feb', 'March', 'April', 'May']
 months.push('October');
 
+
+
+var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+var removed = myFish.splice(2, 0, 'drum');
+
+// myFish is ["angel", "clown", "drum", "mandarin", "sturgeon"] 
+// removed is [], no elements removed
+
+
+var myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+var removed = myFish.splice(3, 1);
+
+// removed is ["mandarin"]
+// myFish is ["angel", "clown", "drum", "sturgeon"]
+
+
+
+
 //*********How to access elements in an array
 var coolPeople = ["bruce lee", "arnold schwarzenegger", "will smith", "esther", "marie curie", "joan of arc"];
 
