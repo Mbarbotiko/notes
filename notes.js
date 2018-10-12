@@ -436,7 +436,9 @@ function vowelChecker(x) {
 }
 
 vowelChecker('Words')
+//runs not a vowel
 vowelChecker('Okay');
+//runs OMG its a vowel
 
 
 // ****************************Objects
@@ -465,15 +467,18 @@ threeObjects.forEach(function(name, brand, carsDestroyed){
 });
 
 console.log(threeObjects[0].name);
+//Digital Destructor
+console.log(threeObjects[1].name);
+//Turb combust
+console.log(threeObjects[2].name);
+//Sams man
+//accessing individual properties 
 
 
 //filter()
 //map()
 //sort()
 //reduce()
-
-
-
 
   //couple of different ways to create objects below, creating a model/ blue print is the easiest/ fastest
 
@@ -645,13 +650,20 @@ let dog = {
   // if outside need to call it by dog. whatever property
   
 
-
-
-
 // ****************************Arrays
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 //*********How to push values into an array
+var months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// inserts at 1st index position
+console.log(months);
+// expected output: Array ['Jan', 'Feb', 'March', 'April', 'June']
 
+months.splice(4, 1, 'May');
+// replaces 1 element at 4th index
+console.log(months);
+// expected output: Array ['Jan', 'Feb', 'March', 'April', 'May']
+months.push('October');
 
 //*********How to access elements in an array
 var coolPeople = ["bruce lee", "arnold schwarzenegger", "will smith", "esther", "marie curie", "joan of arc"];
@@ -661,6 +673,11 @@ var coolPeople = ["bruce lee", "arnold schwarzenegger", "will smith", "esther", 
 console.log(coolPeople[0,1,2,3,4,5]);
 console.log(coolPeople);
 
+
+var myArray = ['a', 'b', 'c', 'd'];
+myArray.push('end');
+myArray.unshift('start');
+console.log(myArray); // ["start", "a", "b", "c", "d", "end"]
 
 
 // ****************************Recursion how to recursion in a function
